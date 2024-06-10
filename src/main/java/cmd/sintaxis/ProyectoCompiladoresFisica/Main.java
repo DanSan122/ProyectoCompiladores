@@ -18,7 +18,7 @@ public class Main {
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
 		PhysicsLangParser parser = new PhysicsLangParser(tokens);
 
-		PhysicsLangParser.StartContext tree = parser.start();
+		PhysicsLangParser.FuncionContext tree = parser.funcion();
 
 		PhysicsLangCustomVisitor visitor = new PhysicsLangCustomVisitor();
 		visitor.visit(tree);
