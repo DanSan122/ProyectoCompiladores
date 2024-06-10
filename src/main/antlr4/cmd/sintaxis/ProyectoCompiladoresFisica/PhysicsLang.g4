@@ -1,22 +1,36 @@
 grammar PhysicsLang;
 
-start
-:
-	'hello' 'world'
-;
-prog:   stat+ ;
+start: 'hello' 'world';
+FUNCION : 'funcion';
+VARIABLE : 'variable';
+MOSTRAR: 'mostrar';
 
-stat:   'crear' 'variable' ID ('es' expr)? ';'          # CrearVariable
-    |   ID '=' expr ';'                                # Asignacion
-    |   'mostrar' ID ';'                               # MostrarVariable
-    ;
+SUMA: '+';
+MENOS: '-';
+MULTIPLICACION: '*';
+DIVICION: '/';
+POTENCIA: '^';
 
-expr:   expr ('*'|'/') expr       # Multiplicacion
-    |   expr ('+'|'-') expr       # Suma
-    |   INT                       # Int
-    |   ID                        # Id
-    ;
+AND : '&&';
+OR: '||';
+NOT: '!';
 
-ID  :   [a-zA-Z]+ ;
+GT: '>';
+LT: '<';
+GEQ: '>=';
+LEQ: '<=';
+EQ: '==';
+NEQ: '!=';
+
+ASIGNAR: '=';
+BRACKET_OPEN: '{';
+BRACKET_CLOSE: '}';
+
+PAR_OPEN: '(';
+PAR_CLOSE: ')';
+
+SEMICOLON: ';';
+
+ID  :   [a-zA-Z_][a-zA-Z0-9_]* ;
 INT :   [0-9]+ ;
 WS  : [ \t\r\n]+ -> skip;
