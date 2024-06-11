@@ -1,3 +1,10 @@
 funcion prueba{
-	mostrar  2^4;
+	entero distancia;
+	entero velocidad;
+	entero tiempo;
+	velocidad = 23;
+	tiempo =10; 
+	
+	distancia = velocidad * tiempo;
+	mostrar  distancia;
 }

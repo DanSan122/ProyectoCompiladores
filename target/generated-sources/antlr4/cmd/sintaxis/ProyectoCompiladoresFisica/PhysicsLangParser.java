@@ -21,10 +21,10 @@ public class PhysicsLangParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		FOR=1, MRU=2, FUNCION=3, VARIABLE=4, MOSTRAR=5, SUMA=6, MENOS=7, MULTIPLICACION=8, 
-		DIVICION=9, POTENCIA=10, AND=11, OR=12, NOT=13, GT=14, LT=15, GEQ=16, 
-		LEQ=17, EQ=18, NEQ=19, ASIGNAR=20, LLAVE_OPEN=21, LLAVE_CLOSE=22, PAR_OPEN=23, 
-		PAR_CLOSE=24, FIN=25, ID=26, ENTERO=27, WS=28;
+		MRU=1, FUNCION=2, VARIABLE=3, MOSTRAR=4, FOR=5, ENTERO_DECL=6, SUMA=7, 
+		MENOS=8, MULTIPLICACION=9, DIVICION=10, POTENCIA=11, AND=12, OR=13, NOT=14, 
+		GT=15, LT=16, GEQ=17, LEQ=18, EQ=19, NEQ=20, ASIGNAR=21, LLAVE_OPEN=22, 
+		LLAVE_CLOSE=23, PAR_OPEN=24, PAR_CLOSE=25, FIN=26, ID=27, ENTERO=28, WS=29;
 	public static final int
 		RULE_funcion = 0, RULE_sentence = 1, RULE_variable_declativa = 2, RULE_variable_asignacion = 3, 
 		RULE_mostrar = 4, RULE_exprecion = 5, RULE_jerarOPE = 6, RULE_termino = 7;
@@ -34,15 +34,15 @@ public class PhysicsLangParser extends Parser {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'for'", "'mru'", "'funcion'", "'variable'", "'mostrar'", "'+'", 
-		"'-'", "'*'", "'/'", "'^'", "'&&'", "'||'", "'!'", "'>'", "'<'", "'>='", 
-		"'<='", "'=='", "'!='", "'='", "'{'", "'}'", "'('", "')'", "';'"
+		null, "'mru'", "'funcion'", "'variable'", "'mostrar'", "'for'", "'entero'", 
+		"'+'", "'-'", "'*'", "'/'", "'^'", "'&&'", "'||'", "'!'", "'>'", "'<'", 
+		"'>='", "'<='", "'=='", "'!='", "'='", "'{'", "'}'", "'('", "')'", "';'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, "FOR", "MRU", "FUNCION", "VARIABLE", "MOSTRAR", "SUMA", "MENOS", 
-		"MULTIPLICACION", "DIVICION", "POTENCIA", "AND", "OR", "NOT", "GT", "LT", 
-		"GEQ", "LEQ", "EQ", "NEQ", "ASIGNAR", "LLAVE_OPEN", "LLAVE_CLOSE", "PAR_OPEN", 
-		"PAR_CLOSE", "FIN", "ID", "ENTERO", "WS"
+		null, "MRU", "FUNCION", "VARIABLE", "MOSTRAR", "FOR", "ENTERO_DECL", "SUMA", 
+		"MENOS", "MULTIPLICACION", "DIVICION", "POTENCIA", "AND", "OR", "NOT", 
+		"GT", "LT", "GEQ", "LEQ", "EQ", "NEQ", "ASIGNAR", "LLAVE_OPEN", "LLAVE_CLOSE", 
+		"PAR_OPEN", "PAR_CLOSE", "FIN", "ID", "ENTERO", "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -142,7 +142,7 @@ public class PhysicsLangParser extends Parser {
 			setState(22);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << VARIABLE) | (1L << MOSTRAR) | (1L << ID))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << VARIABLE) | (1L << MOSTRAR) | (1L << ENTERO_DECL) | (1L << ID))) != 0)) {
 				{
 				{
 				setState(19);
@@ -204,6 +204,7 @@ public class PhysicsLangParser extends Parser {
 			setState(30);
 			switch (_input.LA(1)) {
 			case VARIABLE:
+			case ENTERO_DECL:
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(27);
@@ -241,9 +242,10 @@ public class PhysicsLangParser extends Parser {
 
 	public static class Variable_declativaContext extends ParserRuleContext {
 		public Token ID;
-		public TerminalNode VARIABLE() { return getToken(PhysicsLangParser.VARIABLE, 0); }
 		public TerminalNode ID() { return getToken(PhysicsLangParser.ID, 0); }
 		public TerminalNode FIN() { return getToken(PhysicsLangParser.FIN, 0); }
+		public TerminalNode VARIABLE() { return getToken(PhysicsLangParser.VARIABLE, 0); }
+		public TerminalNode ENTERO_DECL() { return getToken(PhysicsLangParser.ENTERO_DECL, 0); }
 		public Variable_declativaContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -266,11 +268,17 @@ public class PhysicsLangParser extends Parser {
 	public final Variable_declativaContext variable_declativa() throws RecognitionException {
 		Variable_declativaContext _localctx = new Variable_declativaContext(_ctx, getState());
 		enterRule(_localctx, 4, RULE_variable_declativa);
+		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(32);
-			match(VARIABLE);
+			_la = _input.LA(1);
+			if ( !(_la==VARIABLE || _la==ENTERO_DECL) ) {
+			_errHandler.recoverInline(this);
+			} else {
+				consume();
+			}
 			setState(33);
 			((Variable_declativaContext)_localctx).ID = match(ID);
 			setState(34);
@@ -677,29 +685,29 @@ public class PhysicsLangParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\36`\4\2\t\2\4\3\t"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\37`\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\3\2\3\2\3\2\3\2\7\2"+
 		"\27\n\2\f\2\16\2\32\13\2\3\2\3\2\3\3\3\3\3\3\5\3!\n\3\3\4\3\4\3\4\3\4"+
 		"\3\4\3\5\3\5\3\5\3\5\3\5\3\5\3\6\3\6\3\6\3\6\3\6\3\7\3\7\3\7\3\7\3\7\3"+
 		"\7\3\7\3\7\3\7\3\7\7\7=\n\7\f\7\16\7@\13\7\3\b\3\b\3\b\3\b\3\b\3\b\3\b"+
 		"\3\b\3\b\3\b\3\b\3\b\3\b\3\b\7\bP\n\b\f\b\16\bS\13\b\3\t\3\t\3\t\3\t\3"+
-		"\t\3\t\3\t\3\t\3\t\5\t^\n\t\3\t\2\2\n\2\4\6\b\n\f\16\20\2\2a\2\22\3\2"+
-		"\2\2\4 \3\2\2\2\6\"\3\2\2\2\b\'\3\2\2\2\n-\3\2\2\2\f\62\3\2\2\2\16A\3"+
-		"\2\2\2\20]\3\2\2\2\22\23\7\5\2\2\23\24\7\34\2\2\24\30\7\27\2\2\25\27\5"+
-		"\4\3\2\26\25\3\2\2\2\27\32\3\2\2\2\30\26\3\2\2\2\30\31\3\2\2\2\31\33\3"+
-		"\2\2\2\32\30\3\2\2\2\33\34\7\30\2\2\34\3\3\2\2\2\35!\5\6\4\2\36!\5\b\5"+
-		"\2\37!\5\n\6\2 \35\3\2\2\2 \36\3\2\2\2 \37\3\2\2\2!\5\3\2\2\2\"#\7\6\2"+
-		"\2#$\7\34\2\2$%\7\33\2\2%&\b\4\1\2&\7\3\2\2\2\'(\7\34\2\2()\7\26\2\2)"+
-		"*\5\f\7\2*+\7\33\2\2+,\b\5\1\2,\t\3\2\2\2-.\7\7\2\2./\5\f\7\2/\60\7\33"+
-		"\2\2\60\61\b\6\1\2\61\13\3\2\2\2\62\63\5\16\b\2\63>\b\7\1\2\64\65\7\b"+
-		"\2\2\65\66\5\16\b\2\66\67\b\7\1\2\67=\3\2\2\289\7\t\2\29:\5\16\b\2:;\b"+
-		"\7\1\2;=\3\2\2\2<\64\3\2\2\2<8\3\2\2\2=@\3\2\2\2><\3\2\2\2>?\3\2\2\2?"+
-		"\r\3\2\2\2@>\3\2\2\2AB\5\20\t\2BQ\b\b\1\2CD\7\n\2\2DE\5\20\t\2EF\b\b\1"+
-		"\2FP\3\2\2\2GH\7\13\2\2HI\5\20\t\2IJ\b\b\1\2JP\3\2\2\2KL\7\f\2\2LM\5\20"+
-		"\t\2MN\b\b\1\2NP\3\2\2\2OC\3\2\2\2OG\3\2\2\2OK\3\2\2\2PS\3\2\2\2QO\3\2"+
-		"\2\2QR\3\2\2\2R\17\3\2\2\2SQ\3\2\2\2TU\7\35\2\2U^\b\t\1\2VW\7\34\2\2W"+
-		"^\b\t\1\2XY\7\31\2\2YZ\5\f\7\2Z[\b\t\1\2[\\\7\32\2\2\\^\3\2\2\2]T\3\2"+
-		"\2\2]V\3\2\2\2]X\3\2\2\2^\21\3\2\2\2\t\30 <>OQ]";
+		"\t\3\t\3\t\3\t\3\t\5\t^\n\t\3\t\2\2\n\2\4\6\b\n\f\16\20\2\3\4\2\5\5\b"+
+		"\ba\2\22\3\2\2\2\4 \3\2\2\2\6\"\3\2\2\2\b\'\3\2\2\2\n-\3\2\2\2\f\62\3"+
+		"\2\2\2\16A\3\2\2\2\20]\3\2\2\2\22\23\7\4\2\2\23\24\7\35\2\2\24\30\7\30"+
+		"\2\2\25\27\5\4\3\2\26\25\3\2\2\2\27\32\3\2\2\2\30\26\3\2\2\2\30\31\3\2"+
+		"\2\2\31\33\3\2\2\2\32\30\3\2\2\2\33\34\7\31\2\2\34\3\3\2\2\2\35!\5\6\4"+
+		"\2\36!\5\b\5\2\37!\5\n\6\2 \35\3\2\2\2 \36\3\2\2\2 \37\3\2\2\2!\5\3\2"+
+		"\2\2\"#\t\2\2\2#$\7\35\2\2$%\7\34\2\2%&\b\4\1\2&\7\3\2\2\2\'(\7\35\2\2"+
+		"()\7\27\2\2)*\5\f\7\2*+\7\34\2\2+,\b\5\1\2,\t\3\2\2\2-.\7\6\2\2./\5\f"+
+		"\7\2/\60\7\34\2\2\60\61\b\6\1\2\61\13\3\2\2\2\62\63\5\16\b\2\63>\b\7\1"+
+		"\2\64\65\7\t\2\2\65\66\5\16\b\2\66\67\b\7\1\2\67=\3\2\2\289\7\n\2\29:"+
+		"\5\16\b\2:;\b\7\1\2;=\3\2\2\2<\64\3\2\2\2<8\3\2\2\2=@\3\2\2\2><\3\2\2"+
+		"\2>?\3\2\2\2?\r\3\2\2\2@>\3\2\2\2AB\5\20\t\2BQ\b\b\1\2CD\7\13\2\2DE\5"+
+		"\20\t\2EF\b\b\1\2FP\3\2\2\2GH\7\f\2\2HI\5\20\t\2IJ\b\b\1\2JP\3\2\2\2K"+
+		"L\7\r\2\2LM\5\20\t\2MN\b\b\1\2NP\3\2\2\2OC\3\2\2\2OG\3\2\2\2OK\3\2\2\2"+
+		"PS\3\2\2\2QO\3\2\2\2QR\3\2\2\2R\17\3\2\2\2SQ\3\2\2\2TU\7\36\2\2U^\b\t"+
+		"\1\2VW\7\35\2\2W^\b\t\1\2XY\7\32\2\2YZ\5\f\7\2Z[\b\t\1\2[\\\7\33\2\2\\"+
+		"^\3\2\2\2]T\3\2\2\2]V\3\2\2\2]X\3\2\2\2^\21\3\2\2\2\t\30 <>OQ]";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

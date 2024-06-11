@@ -13,7 +13,7 @@ funcion: FUNCION ID LLAVE_OPEN
 		sentence*
 		LLAVE_CLOSE;
 sentence: variable_declativa | variable_asignacion | mostrar;
-variable_declativa: VARIABLE ID FIN
+variable_declativa: (VARIABLE | ENTERO_DECL) ID FIN
 					{symbolTable.put($ID.text,0);};
 variable_asignacion: ID ASIGNAR exprecion FIN
 					{symbolTable.put($ID.text,$exprecion.value);};
@@ -39,11 +39,15 @@ termino returns [Object value]:
 		| PAR_OPEN exprecion {$value = $exprecion.value;} PAR_CLOSE
 		;
 
-FOR: 'for';
+
 MRU: 'mru'; 
 FUNCION : 'funcion';
 VARIABLE : 'variable';
 MOSTRAR: 'mostrar';
+
+FOR: 'for';
+
+ENTERO_DECL : 'entero';
 
 SUMA: '+';
 MENOS: '-';
