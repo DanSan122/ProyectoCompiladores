@@ -16,3 +16,7 @@ prueba;
 mru distancia_mru = distancia(velocidad, tiempo);
 mostrar distancia_mru;
 
+
+// Calcular la velocidad 
+mru velocidad_mru = velocidad(distancia, tiempo);
+mostrar velocidad_mru;
