@@ -57,7 +57,15 @@ calcular_mru:
         
         symbolTable.put($ID.text + "_distancia", (int)$distancia);
         symbolTable.put($ID.text + "_tiempo", (int)$tiempo);
-    } ;
+    } 
+      // Calcular el tiempo
+    | MRU ID ASIGNAR TIEMPO PAR_OPEN distancia=exprecion COMA velocidad=exprecion PAR_CLOSE FIN
+    {
+        int t = (int)$distancia / (int)$velocidad;
+        symbolTable.put($ID.text, t);
+        symbolTable.put($ID.text + "_distancia", (int)$distancia);
+        symbolTable.put($ID.text + "_velocidad", (int)$velocidad);
+    };
 
 MRU: 'mru'; 
 FUNCION : 'funcion';

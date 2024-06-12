@@ -20,3 +20,8 @@ mostrar distancia_mru;
 // Calcular la velocidad 
 mru velocidad_mru = velocidad(distancia, tiempo);
 mostrar velocidad_mru;
+
+
+// Calcular el tiempo 
+mru tiempo_mru = tiempo(distancia, velocidad);
+mostrar tiempo_mru;
