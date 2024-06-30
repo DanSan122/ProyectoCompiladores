@@ -1,10 +1,146 @@
-funcion prueba{
-	entero distancia;
-	entero velocidad;
-	entero tiempo;
-	velocidad = 23;
-	tiempo =10; 
-	
-	distancia = velocidad * tiempo;
-	mostrar  distancia;
+
+### Ejemplo de Input para mru:
+
+text
+mru prueba {
+    entero velocidad;
+    entero tiempo;
+    entero distancia;
+    velocidad = 10;
+    tiempo = 5;
+    mostrar velocidad;
+    mostrar tiempo;
+
+    calcular_mru(velocidad, tiempo, distancia);
+    mostrar distancia;
 }
+
+
+### Ejemplo de Input para mruv:
+
+text
+mruv prueba {
+    entero velocidad_inicial;
+    entero aceleracion;
+    entero tiempo;
+    entero distancia;
+    velocidad_inicial = 10;
+    aceleracion = 2;
+    tiempo = 5;
+    mostrar velocidad_inicial;
+    mostrar aceleracion;
+    mostrar tiempo;
+
+    calcular_mruv(velocidad_inicial, tiempo, distancia);
+    mostrar distancia;
+}
+
+
+### Ejemplo de Input para caida_libre:
+
+text
+caida_libre prueba {
+    entero tiempo;
+    double altura;
+    tiempo = 5;
+    mostrar tiempo;
+
+    calcular_caida_libre(tiempo, altura);
+    mostrar altura;
+}
+
+
+### Ejemplo de Input para segunda_ley_newton:
+
+text
+segunda_ley_newton prueba {
+    entero masa;
+    entero aceleracion;
+    entero fuerza;
+    masa = 10;
+    aceleracion = 5;
+    mostrar masa;
+    mostrar aceleracion;
+
+    calcular_segunda_ley_newton(masa, aceleracion, fuerza);
+    mostrar fuerza;
+}
+
+
+### Ejemplo de Input para densidad:
+
+text
+densidad prueba {
+    entero masa;
+    entero volumen;
+    double densidad1;
+    masa = 10;
+    volumen = 2;
+    mostrar masa;
+    mostrar volumen;
+
+    calcular_densidad(masa, volumen, densidad1);
+    mostrar densidad1;
+}
+
+
+### Ejemplo de Input para ley_ohm:
+
+text
+ley_ohm prueba {
+    entero voltaje;
+    entero corriente;
+    double resistencia;
+    voltaje = 10;
+    corriente = 2;
+    mostrar voltaje;
+    mostrar corriente;
+
+    calcular_ley_ohm(voltaje, corriente, resistencia);
+    mostrar resistencia;
+}
+
+
+### Ejecución Esperada para cada Ejemplo:
+
+#### MRU
+- Declara las variables velocidad, tiempo y distancia.
+- Asigna valores a velocidad (10) y tiempo (5).
+- Muestra los valores de velocidad y tiempo.
+- Calcula la distancia usando MRU.
+- Muestra la distancia.
+
+#### MRUV
+- Declara las variables velocidad_inicial, aceleracion, tiempo y distancia.
+- Asigna valores a velocidad_inicial (10), aceleracion (2) y tiempo (5).
+- Muestra los valores de velocidad_inicial, aceleracion y tiempo.
+- Calcula la distancia usando MRUV.
+- Muestra la distancia.
+
+#### Caída Libre
+- Declara las variables tiempo y altura.
+- Asigna valor a tiempo (5).
+- Muestra el valor de tiempo.
+- Calcula la altura usando la fórmula de caída libre.
+- Muestra la altura.
+
+#### Segunda Ley de Newton
+- Declara las variables masa, aceleracion y fuerza.
+- Asigna valores a masa (10) y aceleracion (5).
+- Muestra los valores de masa y aceleracion.
+- Calcula la fuerza usando la segunda ley de Newton.
+- Muestra la fuerza.
+
+#### Densidad
+- Declara las variables masa, volumen y densidad.
+- Asigna valores a masa (10) y volumen (2).
+- Muestra los valores de masa y volumen.
+- Calcula la densidad usando la fórmula de densidad.
+- Muestra la densidad.
+
+#### Ley de Ohm
+- Declara las variables voltaje, corriente y resistencia.
+- Asigna valores a voltaje (10) y corriente (2).
+- Muestra los valores de voltaje y corriente.
+- Calcula la resistencia usando la ley de Ohm.
+- Muestra la resistencia.
