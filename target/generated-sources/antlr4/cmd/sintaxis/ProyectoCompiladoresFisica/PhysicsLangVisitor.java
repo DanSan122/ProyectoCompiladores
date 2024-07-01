@@ -1,8 +1,8 @@
 // Generated from cmd\sintaxis\ProyectoCompiladoresFisica\PhysicsLang.g4 by ANTLR 4.5.1
 package cmd.sintaxis.ProyectoCompiladoresFisica;
 
-	import java.util.Map;//para usarlos en members
-	import java.util.HashMap;
+    import java.util.Map;
+    import java.util.HashMap;
 
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -44,6 +44,78 @@ public interface PhysicsLangVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitMostrar(PhysicsLangParser.MostrarContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PhysicsLangParser#mru_sentence}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMru_sentence(PhysicsLangParser.Mru_sentenceContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PhysicsLangParser#calcular_mru}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCalcular_mru(PhysicsLangParser.Calcular_mruContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PhysicsLangParser#mruv_sentence}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMruv_sentence(PhysicsLangParser.Mruv_sentenceContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PhysicsLangParser#calcular_mruv}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCalcular_mruv(PhysicsLangParser.Calcular_mruvContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PhysicsLangParser#caida_libre_sentence}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCaida_libre_sentence(PhysicsLangParser.Caida_libre_sentenceContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PhysicsLangParser#calcular_caida_libre}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCalcular_caida_libre(PhysicsLangParser.Calcular_caida_libreContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PhysicsLangParser#segunda_ley_newton_sentence}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSegunda_ley_newton_sentence(PhysicsLangParser.Segunda_ley_newton_sentenceContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PhysicsLangParser#calcular_segunda_ley_newton}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCalcular_segunda_ley_newton(PhysicsLangParser.Calcular_segunda_ley_newtonContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PhysicsLangParser#densidad_sentence}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDensidad_sentence(PhysicsLangParser.Densidad_sentenceContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PhysicsLangParser#calcular_densidad}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCalcular_densidad(PhysicsLangParser.Calcular_densidadContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PhysicsLangParser#ley_ohm_sentence}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLey_ohm_sentence(PhysicsLangParser.Ley_ohm_sentenceContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PhysicsLangParser#calcular_ley_ohm}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCalcular_ley_ohm(PhysicsLangParser.Calcular_ley_ohmContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link PhysicsLangParser#exprecion}.
 	 * @param ctx the parse tree

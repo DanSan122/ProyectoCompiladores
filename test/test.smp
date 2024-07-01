@@ -1,10 +1,12 @@
-funcion prueba{
-	entero distancia;
-	entero velocidad;
-	entero tiempo;
-	velocidad = 23;
-	tiempo =10; 
-	
-	distancia = velocidad * tiempo;
-	mostrar  distancia;
+mru prueba {
+    entero velocidad;
+    entero tiempo;
+    entero distancia;
+    velocidad = 10;
+    tiempo = 5;
+    mostrar velocidad;
+    mostrar tiempo;
+
+    calcular_mru(velocidad, tiempo, distancia);
+    mostrar distancia;
 }

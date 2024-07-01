@@ -19,6 +19,7 @@ public class Main {
 		PhysicsLangParser parser = new PhysicsLangParser(tokens);
 
 		PhysicsLangParser.FuncionContext tree = parser.funcion();
+		//PhysicsLangParser.MruContext tree = parser.mru();
 
 		PhysicsLangCustomVisitor visitor = new PhysicsLangCustomVisitor();
 		visitor.visit(tree);
