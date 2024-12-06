@@ -1,0 +1,27 @@
+funcion prueba{
+	entero distancia;
+	entero velocidad;
+	entero tiempo;
+	velocidad = 23;
+	tiempo =10; 
+	
+	distancia = velocidad * tiempo;
+	mostrar  distancia;
+}
+
+
+prueba;
+
+// Calcular la distancia en el MRU
+mru distancia_mru = distancia(velocidad, tiempo);
+mostrar distancia_mru;
+
+
+// Calcular la velocidad 
+mru velocidad_mru = velocidad(distancia, tiempo);
+mostrar velocidad_mru;
+
+
+// Calcular el tiempo 
+mru tiempo_mru = tiempo(distancia, velocidad);
+mostrar tiempo_mru;
